@@ -7,12 +7,14 @@ for (let i = 0; i < buttonsLen; i++) {
   buttons[i].addEventListener('keypress', (event) => {
     keyPressed = event.key;
     makeSound(keyPressed);
+    buttonAnimation(keyPressed);
   });
 }
 
 for (let i = 0; i < buttonsLen; i++) {
   buttons[i].addEventListener('click', () => {
     makeSound(buttons[i].textContent);
+    buttonAnimation(buttons[i].textContent);
   });
 }
 
@@ -56,4 +58,14 @@ function makeSound(key) {
     default:
       console.log("Button Not Detected!");
   }
+}
+
+function buttonAnimation(currentKey) {
+  let activeBtn = document.querySelector('.' + currentKey);
+  activeBtn.classList.add('pressed');
+
+  setTimeout(() => {
+    activeBtn.classList.remove('pressed');
+
+  }, 100);
 }
