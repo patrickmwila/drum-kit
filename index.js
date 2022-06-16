@@ -16,13 +16,6 @@ for (let i = 0; i < buttonsLen; i++) {
   });
 }
 
-for (let i = 0; i < buttonsLen; i++) {
-  buttons[i].addEventListener('touchstart', () => {
-    makeSound(buttons[i].textContent);
-  });
-}
-
-
 function makeSound(key) {
   switch (key) {
     case 'w':
